@@ -8,7 +8,7 @@
 </head>
 
 <body>
-  <!-- Верхня панель з кнопками -->
+  <!-- Верхня панель -->
   <nav>
     <button onclick="openLogin()">Авторизація</button>
     <button onclick="openRegister()">Реєстрація</button>
@@ -63,67 +63,71 @@
   </footer>
 
   <!-- Модальне вікно Авторизації -->
-  <div id="loginModal" hidden>
-    <h2>Форма авторизації</h2>
-    <form>
-      <label for="login-email">Електронна пошта:</label><br>
-      <input type="email" id="login-email" name="email" placeholder="Введіть вашу пошту" required><br><br>
+  <div id="loginModal" class="modal" hidden>
+    <div class="modal-content">
+      <h2>Форма авторизації</h2>
+      <form>
+        <label for="login-email">Електронна пошта:</label><br>
+        <input type="email" id="login-email" name="email" placeholder="Введіть вашу пошту" required><br><br>
 
-      <label for="login-password">Пароль:</label><br>
-      <input type="password" id="login-password" name="password" placeholder="Введіть пароль" required><br><br>
+        <label for="login-password">Пароль:</label><br>
+        <input type="password" id="login-password" name="password" placeholder="Введіть пароль" required><br><br>
 
-      <input type="checkbox" id="remember" name="remember">
-      <label for="remember">Запам'ятати мене</label><br><br>
+        <input type="checkbox" id="remember" name="remember">
+        <label for="remember">Запам'ятати мене</label><br><br>
 
-      <button type="submit">Увійти</button>
-      <button type="reset">Очистити</button>
-      <button type="button" onclick="closeLogin()">Закрити</button>
-    </form>
+        <button type="submit">Увійти</button>
+        <button type="reset">Очистити</button>
+        <button type="button" onclick="closeLogin()">Закрити</button>
+      </form>
+    </div>
   </div>
 
   <!-- Модальне вікно Реєстрації -->
-  <div id="registerModal" hidden>
-    <h2>Форма реєстрації</h2>
-    <form>
-      <label for="name">Ім’я:</label><br>
-      <input type="text" id="name" name="name" placeholder="Введіть ваше ім’я" required><br><br>
+  <div id="registerModal" class="modal" hidden>
+    <div class="modal-content">
+      <h2>Форма реєстрації</h2>
+      <form>
+        <label for="name">Ім’я:</label><br>
+        <input type="text" id="name" name="name" placeholder="Введіть ваше ім’я" required><br><br>
 
-      <label for="email">Електронна пошта:</label><br>
-      <input type="email" id="email" name="email" placeholder="example@gmail.com" required><br><br>
+        <label for="email">Електронна пошта:</label><br>
+        <input type="email" id="email" name="email" placeholder="example@gmail.com" required><br><br>
 
-      <label for="password">Пароль:</label><br>
-      <input type="password" id="password" name="password" required><br><br>
+        <label for="password">Пароль:</label><br>
+        <input type="password" id="password" name="password" required><br><br>
 
-      <label for="about">Про себе:</label><br>
-      <textarea id="about" name="about" rows="3" cols="30" placeholder="Коротко опишіть себе"></textarea><br><br>
+        <label for="about-text">Про себе:</label><br>
+        <textarea id="about-text" name="about" rows="3" cols="30" placeholder="Коротко опишіть себе"></textarea><br><br>
 
-      <p>Стать:</p>
-      <input type="radio" id="male" name="gender" value="male">
-      <label for="male">Чоловіча</label><br>
-      <input type="radio" id="female" name="gender" value="female">
-      <label for="female">Жіноча</label><br><br>
+        <p>Стать:</p>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Чоловіча</label><br>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Жіноча</label><br><br>
 
-      <label for="country">Країна:</label><br>
-      <select id="country" name="country">
-        <option value="ua" selected>Україна</option>
-        <option value="pl">Польща</option>
-        <option value="de">Німеччина</option>
-        <option value="usa">США</option>
-      </select><br><br>
+        <label for="country">Країна:</label><br>
+        <select id="country" name="country">
+          <option value="ua" selected>Україна</option>
+          <option value="pl">Польща</option>
+          <option value="de">Німеччина</option>
+          <option value="usa">США</option>
+        </select><br><br>
 
-      <label for="birthdate">Дата народження:</label><br>
-      <input type="date" id="birthdate" name="birthdate"><br><br>
+        <label for="birthdate">Дата народження:</label><br>
+        <input type="date" id="birthdate" name="birthdate"><br><br>
 
-      <input type="checkbox" id="agree" name="agree" required>
-      <label for="agree">Погоджуюсь з умовами використання</label><br><br>
+        <input type="checkbox" id="agree" name="agree" required>
+        <label for="agree">Погоджуюсь з умовами використання</label><br><br>
 
-      <button type="submit">Зареєструватися</button>
-      <button type="reset">Очистити</button>
-      <button type="button" onclick="closeRegister()">Закрити</button>
-    </form>
+        <button type="submit">Зареєструватися</button>
+        <button type="reset">Очистити</button>
+        <button type="button" onclick="closeRegister()">Закрити</button>
+      </form>
+    </div>
   </div>
 
-  <!-- Підключення JS -->
+  <!-- Підключення скриптів -->
   <script src="./script/scriptreglog.js"></script>
 </body>
 </html>
