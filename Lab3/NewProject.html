@@ -1,59 +1,129 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-    <meta charset="UTF-8">
-    <title>Сторінка Кулеша Олега</title>
-    <link rel="stylesheet" href="./styles/style.CSS">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Сторінка Кулеша Олега</title>
+  <link rel="stylesheet" href="./styles/style.css">
 </head>
+
 <body>
-    <header id="header">
-        <img src="/img/photo1.jpg" 
-             alt="Моє фото" 
-             fetchpriority="high"
-             class="profile-photo">
-        <div class="header-text">
-            <h1>Кулеш Олег</h1>
-            <p>Студент групи ІН-32/1</p>
-        </div>
-    </header>
+  <!-- Верхня панель з кнопками -->
+  <nav>
+    <button onclick="openLogin()">Авторизація</button>
+    <button onclick="openRegister()">Реєстрація</button>
+  </nav>
 
-    <nav id="menu">
-        <ul>
-            <li><a href="#about">Про мене</a></li>
-            <li><a href="#hobbies">Хобі</a></li>
-            <li><a href="#contacts">Контакти</a></li>
-        </ul>
-    </nav>
+  <header id="header">
+    <img src="./img/photo1.jpg" 
+         alt="Моє фото" 
+         fetchpriority="high"
+         class="profile-photo">
+    <div class="header-text">
+      <h1>Кулеш Олег</h1>
+      <p>Студент групи ІН-32/1</p>
+    </div>
+  </header>
 
-    <main id="content">
-        
-        <article id="about" class="article">
-            <h2>Про мене</h2>
-            <p>Мене звати Кулеш Олег. Я навчаюся в СумДУ. Люблю грати у відеоігри та пізнавати нове.</p>
-        </article>
+  <nav id="menu">
+    <ul>
+      <li><a href="#about">Про мене</a></li>
+      <li><a href="#hobbies">Хобі</a></li>
+      <li><a href="#contacts">Контакти</a></li>
+    </ul>
+  </nav>
 
-        <section id="hobbies" class="section">
-            <h2>Мої хобі</h2>
-            <p>У вільний час я люблю грати в комп’ютерні ігри або дивитися фільми. Також мені подобається фотографувати. Ось фото їжака:</p>
-            <img src="./img/photo2.jpg" 
-                 alt="Їжак" 
-                 loading="lazy"
-                 class="hobby-photo">
-        </section>
+  <main id="content">
+    <article id="about" class="article">
+      <h2>Про мене</h2>
+      <p>Мене звати Кулеш Олег. Я навчаюся в СумДУ. Люблю грати у відеоігри та пізнавати нове.</p>
+    </article>
 
-        <aside id="extra">
-            <h3>Цікаві факти</h3>
-            <ul>
-                <li>П’ять років я займався спортом у тренажерному залі.</li>
-                <li>Маю автомобіль, але не маю водійських прав.</li>
-            </ul>
-        </aside>
-    </main>
+    <section id="hobbies" class="section">
+      <h2>Мої хобі</h2>
+      <p>У вільний час я люблю грати в комп’ютерні ігри або дивитися фільми. Також мені подобається фотографувати. Ось фото їжака:</p>
+      <img src="./img/photo2.jpg" 
+           alt="Їжак" 
+           loading="lazy"
+           class="hobby-photo">
+    </section>
 
-    <footer id="contacts">
-        <p>Контакти: <a href="mailto:kulesh.oleh@student.sumdu.edu.ua">kulesh.oleh@student.sumdu.edu.ua</a></p>
-        <p>&copy; 2025 Кулеш Олег</p>
-    </footer>
+    <aside id="extra">
+      <h3>Цікаві факти</h3>
+      <ul>
+        <li>П’ять років я займався спортом у тренажерному залі.</li>
+        <li>Маю автомобіль, але не маю водійських прав.</li>
+      </ul>
+    </aside>
+  </main>
 
+  <footer id="contacts">
+    <p>Контакти: <a href="mailto:kulesh.oleh@student.sumdu.edu.ua">kulesh.oleh@student.sumdu.edu.ua</a></p>
+    <p>&copy; 2025 Кулеш Олег</p>
+  </footer>
+
+  <!-- Модальне вікно Авторизації -->
+  <div id="loginModal" hidden>
+    <h2>Форма авторизації</h2>
+    <form>
+      <label for="login-email">Електронна пошта:</label><br>
+      <input type="email" id="login-email" name="email" placeholder="Введіть вашу пошту" required><br><br>
+
+      <label for="login-password">Пароль:</label><br>
+      <input type="password" id="login-password" name="password" placeholder="Введіть пароль" required><br><br>
+
+      <input type="checkbox" id="remember" name="remember">
+      <label for="remember">Запам'ятати мене</label><br><br>
+
+      <button type="submit">Увійти</button>
+      <button type="reset">Очистити</button>
+      <button type="button" onclick="closeLogin()">Закрити</button>
+    </form>
+  </div>
+
+  <!-- Модальне вікно Реєстрації -->
+  <div id="registerModal" hidden>
+    <h2>Форма реєстрації</h2>
+    <form>
+      <label for="name">Ім’я:</label><br>
+      <input type="text" id="name" name="name" placeholder="Введіть ваше ім’я" required><br><br>
+
+      <label for="email">Електронна пошта:</label><br>
+      <input type="email" id="email" name="email" placeholder="example@gmail.com" required><br><br>
+
+      <label for="password">Пароль:</label><br>
+      <input type="password" id="password" name="password" required><br><br>
+
+      <label for="about">Про себе:</label><br>
+      <textarea id="about" name="about" rows="3" cols="30" placeholder="Коротко опишіть себе"></textarea><br><br>
+
+      <p>Стать:</p>
+      <input type="radio" id="male" name="gender" value="male">
+      <label for="male">Чоловіча</label><br>
+      <input type="radio" id="female" name="gender" value="female">
+      <label for="female">Жіноча</label><br><br>
+
+      <label for="country">Країна:</label><br>
+      <select id="country" name="country">
+        <option value="ua" selected>Україна</option>
+        <option value="pl">Польща</option>
+        <option value="de">Німеччина</option>
+        <option value="usa">США</option>
+      </select><br><br>
+
+      <label for="birthdate">Дата народження:</label><br>
+      <input type="date" id="birthdate" name="birthdate"><br><br>
+
+      <input type="checkbox" id="agree" name="agree" required>
+      <label for="agree">Погоджуюсь з умовами використання</label><br><br>
+
+      <button type="submit">Зареєструватися</button>
+      <button type="reset">Очистити</button>
+      <button type="button" onclick="closeRegister()">Закрити</button>
+    </form>
+  </div>
+
+  <!-- Підключення JS -->
+  <script src="./script/scriptreglog.js"></script>
 </body>
 </html>
