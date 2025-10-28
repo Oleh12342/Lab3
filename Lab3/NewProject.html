@@ -114,13 +114,16 @@
       <h2 id="register-title">Форма реєстрації</h2>
       <form>
         <label for="name">Ім’я:</label><br>
-        <input type="text" id="name" name="name" placeholder="Введіть ваше ім’я" required><br><br>
+        <input type="text" id="name" name="name" placeholder="Введіть ваше ім’я" required>
+        <p class="error"></p><br><br>
 
         <label for="email">Електронна пошта:</label><br>
-        <input type="email" id="email" name="email" placeholder="example@gmail.com" required><br><br>
+        <input type="email" id="email" name="email" placeholder="example@gmail.com" required>
+        <p class="error"></p><br><br>
 
         <label for="password">Пароль:</label><br>
-        <input type="password" id="password" name="password" required><br><br>
+        <input type="password" id="password" name="password" required>
+        <p class="error"></p><br><br>
 
         <label for="about-text">Про себе:</label><br>
         <textarea id="about-text" name="about" rows="3" cols="30" placeholder="Коротко опишіть себе"></textarea><br><br>

@@ -23,6 +23,22 @@ header {
   max-width: 40rem;
 }
 
+input.valid { 
+  border: 2px solid #2ecc71;
+  background-color: #eaffea;
+}
+
+input.invalid {
+  border: 2px solid #e74c3c;
+  background-color: #ffeaea;
+}
+
+.error {
+  color: #e74c3c;
+  font-size: 0.9rem;
+  margin-top: 0.3rem;
+}
+
 .profile-photo {
   width: clamp(8rem, 15vw, 12rem);
   border-radius: 50%;
