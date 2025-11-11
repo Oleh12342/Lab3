@@ -23,6 +23,7 @@ header {
   max-width: 40rem;
 }
 
+/* === Валідація полів введення === */
 input.valid { 
   border: 2px solid #2ecc71;
   background-color: #eaffea;
@@ -120,6 +121,7 @@ img {
   margin: 1rem auto;
 }
 
+/* === Секція блогу === */
 #blog-posts-section {
   background: #fdfdfd;
   border-radius: 1rem;
@@ -154,7 +156,7 @@ img {
   text-align: center;
 }
 
-/* Кнопки категорій */
+/* === Кнопки категорій блогу === */
 .button-container {
   display: flex;
   justify-content: center;
@@ -177,7 +179,7 @@ img {
   background-color: #1e40af;
 }
 
-/* Лічильник */
+/* === Лічильник статей === */
 #article-count {
   text-align: center;
   font-weight: 500;
@@ -194,6 +196,7 @@ img {
   padding: 1rem 1.5rem;
 }
 
+/* === Кнопки під статтями === */
 .blog-buttons {
   text-align: center;
   margin: 1rem 0 2rem;
@@ -215,6 +218,35 @@ img {
   transform: scale(1.05);
 }
 
+/* === Кнопка-посилання "Список користувачів" === */
+.userlist-btn {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.userlist-link {
+  display: inline-block;
+  background-color: #4a90e2;
+  color: white;
+  text-decoration: none;
+  padding: 0.8rem 1.8rem;
+  border-radius: 0.6rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0.3rem 0.6rem rgba(0, 0, 0, 0.15);
+}
+
+.userlist-link:hover {
+  background-color: #357ABD;
+  transform: scale(1.05);
+  box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.25);
+}
+
+.userlist-link:focus {
+  outline: 3px solid #ffcc00;
+  outline-offset: 3px;
+}
 
 /* === Підвал === */
 footer {
