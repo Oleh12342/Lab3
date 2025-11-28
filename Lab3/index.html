@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Сторінка Кулеша Олега</title>
+  <link rel="stylesheet" href="./styles/style.css">
+</head>
+
+<body>
+  <!-- Верхня панель -->
+  <nav aria-label="Панель користувача">
+    <button onclick="openLogin()" aria-controls="loginModal" aria-expanded="false">Авторизація</button>
+    <button onclick="openRegister()" aria-controls="registerModal" aria-expanded="false">Реєстрація</button>
+  </nav>
+
+  <header id="header" role="banner">
+    <img src="./img/photo1.jpg"
+        srcset="./img/photo1.jpg 400w, ./img/photo1.jpg 800w, ./img/photo1.jpg 1200w"
+        sizes="(max-width: 600px) 100vw, (max-width: 1024px) 50vw, 800px"
+         alt="Моє фото" 
+         fetchpriority="high"
+         class="profile-photo"
+         loading="lazy">
+    <div class="header-text">
+      <h1>Кулеш Олег</h1>
+      <p>Студент групи ІН-32/1</p>
+    </div>
+  </header>
+
+  <nav id="menu" aria-label="Головне меню">
+    <ul>
+      <li><a href="#about" aria-current="page">Про мене</a></li>
+      <li><a href="#hobbies">Хобі</a></li>
+      <li><a href="#contacts">Контакти</a></li>
+    </ul>
+  </nav>
+
+  <main id="content">
+    <article id="about" class="article">
+      <h2>Про мене</h2>
+      <p>Мене звати Кулеш Олег. Я навчаюся в СумДУ. Люблю грати у відеоігри та пізнавати нове.</p>
+    </article>
+
+    <section id="hobbies" class="section">
+      <h2>Мої хобі</h2>
+      <p>У вільний час я люблю грати в комп’ютерні ігри або дивитися фільми. Також мені подобається фотографувати. Ось фото їжака:</p>
+      <img src="./img/photo2.jpg"
+           srcset="./img/photo2.jpg 400w, ./img/photo2.jpg 800w, ./img/photo2.jpg 1200w"
+           sizes="(max-width: 600px) 100vw, (max-width: 1024px) 50vw, 800px"
+           alt="Їжак" 
+           class="hobby-photo"
+           loading="lazy">
+    </section>
+
+    <aside id="extra" aria-label="Цікаві факти">
+      <h3>Цікаві факти</h3>
+      <ul>
+        <li>П’ять років я займався спортом у тренажерному залі.</li>
+        <li>Маю автомобіль, але не маю водійських прав.</li>
+      </ul>
+    </aside>
+  </main>
+
+  <section id="blog-posts-section">
+  <h2>Блог</h2>
+  <p id="article-count"></p>
+  <section id="blog-posts"></section>
+  </section>
+
+  <!-- Блог -->
+  <section id="blog-posts-section">
+  <h2>Блог</h2>
+
+  <div class="blog-buttons">
+    <button class="filter-btn" data-category="all">Усі</button>
+    <button class="filter-btn" data-category="JavaScript">JavaScript</button>
+    <button class="filter-btn" data-category="HTML">HTML</button>
+    <button class="filter-btn" data-category="CSS">CSS</button>
+  </div>
+  </section>
+
+  <!-- Кнопка переходу до сторінки с користувачами -->
+  <div class="userlist-btn">
+    <a href="./index2.html" class="userlist-link">Список користувачів</a>
+  </div>
+
+  <!-- Пости -->>
+<section id="post-creator" class="form-container">
+  <h2>Створити пост</h2>
+
+  <label for="post-title">Заголовок:</label><br>
+  <input type="text" id="post-title" placeholder="Введіть заголовок"><br><br>
+
+  <label for="post-body">Текст поста:</label><br>
+  <textarea id="post-body" rows="4" placeholder="Введіть текст"></textarea><br><br>
+
+  <button id="add-post-btn">Додати пост</button>
+  <button id="clear-posts-btn">Очистити пости</button>
+
+  <p id="post-count">Усього постів: 0</p>
+
+  <div id="posts"></div>
+</section>
+
+  <footer id="contacts" role="contentinfo">
+    <p>Контакти: <a href="mailto:kulesh.oleh@student.sumdu.edu.ua" aria-label="Надіслати лист Кулешу Олегу">kulesh.oleh@student.sumdu.edu.ua</a></p>
+    <p>&copy; 2025 Кулеш Олег</p>
+  </footer>
+
+  <!-- Модальне вікно Авторизації -->
+  <div id="loginModal" class="modal" role="dialog" aria-labelledby="login-title" aria-hidden="true" hidden>
+    <div class="modal-content">
+      <h2 id="login-title">Форма авторизації</h2>
+      <form>
+        <label for="login-email">Електронна пошта:</label><br>
+        <input type="email" id="login-email" name="email" placeholder="Введіть вашу пошту" required><br><br>
+
+        <label for="login-password">Пароль:</label><br>
+        <input type="password" id="login-password" name="password" placeholder="Введіть пароль" required><br><br>
+
+        <input type="checkbox" id="remember" name="remember">
+        <label for="remember">Запам'ятати мене</label><br><br>
+
+        <button type="submit">Увійти</button>
+        <button type="reset">Очистити</button>
+        <button type="button" onclick="closeLogin()">Закрити</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Модальне вікно Реєстрації -->
+  <div id="registerModal" class="modal" role="dialog" aria-labelledby="register-title" aria-hidden="true" hidden>
+    <div class="modal-content">
+      <h2 id="register-title">Форма реєстрації</h2>
+      <form>
+        <label for="name">Ім’я:</label><br>
+        <input type="text" id="name" name="name" placeholder="Введіть ваше ім’я" required>
+        <p class="error"></p><br><br>
+
+        <label for="email">Електронна пошта:</label><br>
+        <input type="email" id="email" name="email" placeholder="example@gmail.com" required>
+        <p class="error"></p><br><br>
+
+        <label for="password">Пароль:</label><br>
+        <input type="password" id="password" name="password" required>
+        <p class="error"></p><br><br>
+
+        <label for="about-text">Про себе:</label><br>
+        <textarea id="about-text" name="about" rows="3" cols="30" placeholder="Коротко опишіть себе"></textarea><br><br>
+
+        <p>Стать:</p>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Чоловіча</label><br>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Жіноча</label><br><br>
+
+        <label for="country">Країна:</label><br>
+        <select id="country" name="country">
+          <option value="ua" selected>Україна</option>
+          <option value="pl">Польща</option>
+          <option value="de">Німеччина</option>
+          <option value="usa">США</option>
+        </select><br><br>
+
+        <label for="birthdate">Дата народження:</label><br>
+        <input type="date" id="birthdate" name="birthdate"><br><br>
+
+        <input type="checkbox" id="agree" name="agree" required>
+        <label for="agree">Погоджуюсь з умовами використання</label><br><br>
+
+        <button type="submit">Зареєструватися</button>
+        <button type="reset">Очистити</button>
+        <button type="button" onclick="closeRegister()">Закрити</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Підключення скриптів -->
+  <script src="./script/scriptreglog.js"></script>
+  <script src="./script/blog.js"></script>
+  <script src="./typescript/post.js"></script>
+</body>
+</html>

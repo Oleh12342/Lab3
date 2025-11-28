@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Fetch + JSON</title>
+</head>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 40px;
+        background-color: #f9f9f9;
+    }
+
+    h1 {
+        color: #333;
+    }
+
+    #status {
+        font-weight: bold;
+        color: #0066cc;
+        margin-bottom: 15px;
+    }
+
+    ul {
+        background: white;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        list-style: none;
+    }
+
+    li {
+        padding: 5px 0;
+        border-bottom: 1px solid #ddd;
+    }
+
+    li:last-child {
+        border-bottom: none;
+    }
+</style>
+
+<body>
+    <h1>Список користувачів</h1>
+    <p id="status">Завантаження...</p>
+    <ul id="userList"></ul>
+
+    <!-- Підключення валідації з окремого файлу -->
+    <script src="./typescript/validator.js"></script>
+
+    <!-- Основний скрипт для fetch і відображення -->
+    <script>
+        async function loadData() {
+            const status = document.getElementById('status');
+            const list = document.getElementById('userList');
+
+            list.innerHTML = '';
+            status.textContent = 'Завантаження...';
+
+            try {
+                const response = await fetch('./JSON/data.json'); // Перевір шлях до файлу JSON
+                if (!response.ok) {
+                    throw new Error(`Статус відповіді: ${response.status}`);
+                }
+
+                const data = await response.json();
+                status.textContent = 'Успішно завантажено';
+
+                // ---------------- Відображення даних з валідацією ----------------
+                data.forEach(user => {
+                    // Викликаємо валідацію для кожного користувача
+                    const errors = validateForm({
+                        name: user.name,
+                        email: user.email,
+                        consent: true
+                    });
+
+                    const li = document.createElement('li');
+
+                    if (errors.length > 0) {
+                        // Якщо є помилка, показуємо її у червоному
+                        li.textContent = `${user.name} (${user.email}) — ${errors.join(", ")}`;
+                        li.style.color = 'red';
+                    } else {
+                        // Якщо все ок, звичайний список
+                        li.textContent = `${user.name} (${user.email})`;
+                    }
+
+                    list.appendChild(li);
+                });
+
+            } catch (error) {
+                console.error('Помилка:', error);
+                status.textContent = 'Помилка завантаження даних';
+            }
+        }
+
+        // Виклик функції після завантаження сторінки
+        loadData();
+    </script>
+</body>
+</html>
